@@ -1,0 +1,80 @@
+# FC SEOUL Fan Web Project - Implementation Plan
+
+## 1. Project Overview
+- **Project Name:** FC SEOUL: 수도 서울의 자부심 (Personal Portfolio Website)
+- **Target Audience:** K League fans, general audience, and evaluation panel
+- **Main Goal:** Introduce FC Seoul's matchday atmosphere, identity, gallery, and tips for first-time visitors using high-quality media.
+- **Color Palette:**
+  - Primary: Deep Red (`#DC2626`)
+  - Secondary: Dark Charcoal (`#0F172A`)
+  - Accent: Gold (`#EAB308`)
+  - Text/Background: Light Gray (`#F8FAFC`), Pure White (`#FFFFFF`)
+
+---
+
+## 2. File & Folder Structure
+```text
+/ (Project Root)
+├── index.html            # Main single-page web structure
+├── photo1_hero.jpg       # Hero section background (Stadium night view)
+├── photo2_supporters.jpg # About & Gallery (Supporters Suhosin)
+├── photo3_action.jpg     # Gallery (Match action / Save moment)
+├── photo4_detail.jpg     # Gallery (Uniform patch / Ball detail)
+├── photo5_ticket.jpg     # Matchday Guide & Gallery (Ticket / Food)
+└── plan.md               # Project design plan
+```
+
+---
+
+## 3. Web Page Architecture (Single-Page Layout)
+
+### Section 1: Navigation Bar (Fixed Header)
+- **Logo:** FC SEOUL RED & BLACK
+- **Nav Links:** ABOUT, IDENTITY, GALLERY, GUIDE, CONTACT
+- **Style:** Semi-transparent dark background with blur effect on scroll.
+
+### Section 2: Hero Section (Main Visual)
+- **Background:** `photo1_hero.jpg` with dark gradient overlay.
+- **Badge:** `SEOUL IN RED & BLACK`
+- **Main Title:** `FC SEOUL: 수도 서울의 자부심`
+- **Subtitle:** `대한민국 수도를 대표하는 프로축구단 FC 서울의 역사, 문화, 그리고 열정의 순간들`
+- **CTA Buttons:** `[ 구단 가이드 ]` (Scroll to Guide), `[ 상암 직관 팁 ]`
+
+### Section 3: About Section
+- **Title:** `ABOUT THE CLUB`
+- **Text Content:**
+  > FC 서울은 대한민국 수도 서울특별시를 연고로 하는 K리그 대표 인기 구단입니다. 서울월드컵경기장을 홈구장으로 사용하며, 검붉은 유니폼과 함께 K리그1 무대와 아시아 챔피언스리그(ACLE)를 넘나드는 역동적인 축구를 선보이고 있습니다.
+
+### Section 4: Core Identity (3-Card Layout)
+- **Card 1: HOME GROUND**
+  - Description: 약 6만 6천 석 규모의 아시아 최대 전용구장 중 하나인 서울월드컵경기장.
+- **Card 2: SUPPORTERS**
+  - Description: 90분 내내 꺼지지 않는 응원과 화려한 검붉은 퍼포먼스로 힘을 실어주는 12번째 선수 '수호신'.
+- **Card 3: MATCHDAY EXPERIENCE**
+  - Description: 북측 광장 이벤트, 팬파크 굿즈샵, 푸드트럭까지 즐기는 올인원 직관 문화.
+
+### Section 5: Matchday Gallery
+- **Title:** `MATCHDAY GALLERY`
+- **Subtitle:** `렌즈 너머로 바라본 상암의 순간들`
+- **Grid Items:**
+  1. `photo2_supporters.jpg` - *The Fortress* (수호신이 지키는 N석의 열기)
+  2. `photo3_action.jpg` - *Unstoppable* (피치 위 승리를 향한 집중력)
+  3. `photo4_detail.jpg` - *Seoul Vibe* (검붉은 자부심의 디테일)
+  4. `photo5_ticket.jpg` - *Matchday Memory* (직관의 설렘과 기억)
+
+### Section 6: Matchday Guide (4-Step Timeline)
+- **Step 1:** 티켓 예매 (경기 5일 전 티켓링크 오픈)
+- **Step 2:** 오시는 길 (지하철 6호선 월드컵경기장역 2번 출구 도보 1분)
+- **Step 3:** 팬파크 방문 (6호선 출구 앞 공식 샵에서 머플러/유니폼 구매)
+- **Step 4:** 직관 푸드 (북측 광장 푸드트럭 존 탐방)
+
+### Section 7: Footer
+- **Copyright:** `© 2026 FC SEOUL Fan Web Project. All rights reserved.`
+- **Social Link:** `Instagram Portfolio (@kimted.space)`
+
+---
+
+## 4. Technical Requirements
+1. **Single File Structure:** HTML, Tailwind CSS (via CDN), and vanilla JS included in a single `index.html` file.
+2. **Responsive Design:** Mobile-first fluid grid layout.
+3. **Interactivity:** Smooth scrolling for nav items, hover effects on gallery items and cards.

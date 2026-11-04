@@ -1,2 +1,805 @@
-hello
-nice
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FC SEOUL: 수도 서울의 자부심 | Fan Portfolio</title>
+  <meta name="description" content="대한민국 수도를 대표하는 프로축구단 FC 서울의 역사, 문화, 그리고 열정의 순간들">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            seoul: {
+              red: '#DC2626',
+              deepRed: '#B91C1C',
+              darkRed: '#991B1B',
+              dark: '#0F172A',
+              cardDark: '#1E293B',
+              borderDark: '#334155',
+              gold: '#EAB308',
+              goldLight: '#FDE047',
+              lightGray: '#F8FAFC',
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-red': '0 0 25px -5px rgba(220, 38, 38, 0.4)',
+            'glow-gold': '0 0 25px -5px rgba(234, 179, 8, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Pretendard Web Font CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- FontAwesome 6 CDN (Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0F172A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DC2626;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #EAB308;
+    }
+
+    /* Red & Black Striped Accent Bar */
+    .seoul-stripes {
+      background: repeating-linear-gradient(
+        -45deg,
+        #DC2626,
+        #DC2626 12px,
+        #0F172A 12px,
+        #0F172A 24px
+      );
+    }
+    
+    /* Subtle Text Glow */
+    .text-glow-gold {
+      text-shadow: 0 0 15px rgba(234, 179, 8, 0.5);
+    }
+    .text-glow-red {
+      text-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-seoul-dark text-seoul-lightGray font-sans antialiased selection:bg-seoul-red selection:text-white">
+
+  <!-- ==============================================
+       Section 1: Navigation Bar (Fixed Header)
+       ============================================== -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-seoul-dark/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-black/40 border border-seoul-red/60 flex items-center justify-center p-0.5 shadow-md group-hover:border-seoul-gold transition-colors">
+            <img src="fc_seoul_logo.png" alt="FC SEOUL Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='fc서울 엠블럼.png';">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black tracking-wider text-white group-hover:text-seoul-red transition-colors flex items-center gap-1.5">
+              FC SEOUL <span class="text-xs px-1.5 py-0.5 rounded bg-seoul-red text-white font-bold tracking-normal">RED & BLACK</span>
+            </span>
+            <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Pride of Capital</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-sm font-semibold tracking-wide text-slate-300 hover:text-seoul-gold transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-seoul-red hover:after:w-full after:transition-all duration-300">ABOUT</a>
+          <a href="#identity" class="text-sm font-semibold tracking-wide text-slate-300 hover:text-seoul-gold transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-seoul-red hover:after:w-full after:transition-all duration-300">IDENTITY</a>
+          <a href="#gallery" class="text-sm font-semibold tracking-wide text-slate-300 hover:text-seoul-gold transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-seoul-red hover:after:w-full after:transition-all duration-300">GALLERY</a>
+          <a href="#guide" class="text-sm font-semibold tracking-wide text-slate-300 hover:text-seoul-gold transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-seoul-red hover:after:w-full after:transition-all duration-300">GUIDE</a>
+          <a href="#contact" class="text-sm font-semibold tracking-wide text-slate-300 hover:text-seoul-gold transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-seoul-red hover:after:w-full after:transition-all duration-300">CONTACT</a>
+        </nav>
+
+        <!-- Right Quick Action (Desktop) -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#guide" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-seoul-red hover:bg-seoul-darkRed rounded-full shadow-glow-red hover:shadow-lg transition-all duration-200">
+            <i class="fa-solid fa-ticket text-seoul-gold"></i>
+            <span>티켓링크 예매</span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" type="button" class="p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none transition-colors" aria-label="메뉴 열기">
+            <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-seoul-dark/95 backdrop-blur-xl border-b border-seoul-red/30 px-6 pt-2 pb-6 space-y-3 transition-all">
+      <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-slate-200 hover:text-seoul-gold hover:bg-white/5 transition-colors">ABOUT</a>
+      <a href="#identity" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-slate-200 hover:text-seoul-gold hover:bg-white/5 transition-colors">IDENTITY</a>
+      <a href="#gallery" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-slate-200 hover:text-seoul-gold hover:bg-white/5 transition-colors">GALLERY</a>
+      <a href="#guide" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-slate-200 hover:text-seoul-gold hover:bg-white/5 transition-colors">GUIDE</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-slate-200 hover:text-seoul-gold hover:bg-white/5 transition-colors">CONTACT</a>
+      <div class="pt-3 border-t border-white/10">
+        <a href="#guide" class="mobile-nav-link flex items-center justify-center gap-2 w-full py-3 text-center text-sm font-bold text-white bg-seoul-red rounded-lg shadow-glow-red">
+          <i class="fa-solid fa-ticket text-seoul-gold"></i>
+          <span>티켓링크 예매 안내</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==============================================
+       Section 2: Hero Section (Main Visual)
+       ============================================== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Background Image with Gradient Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="photo1_hero.jpg" alt="FC Seoul Stadium Night View" class="w-full h-full object-cover object-center transform scale-105 motion-safe:animate-[pulse_10s_ease-in-out_infinite]" onerror="this.onerror=null; this.src='메인배경용 1.png';">
+      <!-- Dark gradient layers for depth and contrast -->
+      <div class="absolute inset-0 bg-gradient-to-t from-seoul-dark via-seoul-dark/80 to-seoul-dark/60"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-seoul-dark/90 via-transparent to-seoul-dark/90"></div>
+      <!-- Red accent ambient light -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-seoul-red/20 blur-3xl rounded-full pointer-events-none"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center py-20">
+      
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-seoul-red/20 border border-seoul-red/50 text-seoul-gold text-xs sm:text-sm font-bold tracking-widest uppercase mb-6 shadow-glow-red backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-seoul-gold animate-ping"></span>
+        <span>SEOUL IN RED & BLACK</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+        FC SEOUL<br class="sm:hidden">
+        <span class="bg-gradient-to-r from-white via-slate-100 to-seoul-gold bg-clip-text text-transparent">수도 서울의 자부심</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="max-w-2xl text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-10">
+        대한민국 수도를 대표하는 프로축구단 FC 서울의 역사, 문화, 그리고 열정의 순간들
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <a href="#guide" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-seoul-red hover:bg-seoul-deepRed text-white font-bold text-base shadow-glow-red hover:shadow-2xl hover:scale-105 transition-all duration-200">
+          <i class="fa-solid fa-compass text-seoul-gold"></i>
+          <span>구단 가이드</span>
+        </a>
+        <a href="#identity" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-white font-bold text-base border border-slate-600/80 hover:border-seoul-gold/80 hover:scale-105 transition-all duration-200 backdrop-blur-md">
+          <i class="fa-solid fa-lightbulb text-seoul-gold"></i>
+          <span>상암 직관 팁</span>
+        </a>
+      </div>
+
+      <!-- Brand Stripes Accent -->
+      <div class="w-32 h-1.5 seoul-stripes rounded-full mt-14 shadow-md"></div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-slate-400 hover:text-seoul-gold transition-colors focus:outline-none" aria-label="다음 섹션으로 스크롤">
+      <span class="text-[11px] font-semibold tracking-widest uppercase">SCROLL</span>
+      <div class="w-5 h-8 border-2 border-slate-500 rounded-full flex justify-center pt-1">
+        <div class="w-1.5 h-2 bg-seoul-red rounded-full animate-bounce"></div>
+      </div>
+    </a>
+  </section>
+
+
+  <!-- ==============================================
+       Section 3: About Section
+       ============================================== -->
+  <section id="about" class="py-24 sm:py-32 relative bg-seoul-dark overflow-hidden">
+    <!-- Subtle Background Glow -->
+    <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-seoul-red/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-seoul-gold text-xs font-bold tracking-widest uppercase mb-3">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>The Capital Club</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">
+          ABOUT THE CLUB
+        </h2>
+        <div class="w-16 h-1 bg-seoul-red mx-auto mb-8 rounded-full"></div>
+        
+        <!-- Text Content specified in plan.md -->
+        <p class="text-lg sm:text-xl text-slate-300 leading-relaxed font-light break-keep bg-seoul-cardDark/60 p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl backdrop-blur-sm">
+          FC 서울은 대한민국 수도 서울특별시를 연고로 하는 K리그 대표 인기 구단입니다. 서울월드컵경기장을 홈구장으로 사용하며, 검붉은 유니폼과 함께 K리그1 무대와 아시아 챔피언스리그(ACLE)를 넘나드는 역동적인 축구를 선보이고 있습니다.
+        </p>
+      </div>
+
+      <!-- Club Stats Highlights -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- Stat 1 -->
+        <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900/90 p-6 rounded-2xl border border-slate-800 hover:border-seoul-red/50 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-seoul-red/10 border border-seoul-red/30 flex items-center justify-center text-seoul-red text-xl mb-4 group-hover:scale-110 group-hover:bg-seoul-red group-hover:text-white transition-all">
+            <i class="fa-solid fa-landmark"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight">1983</div>
+          <div class="text-sm font-bold text-seoul-gold mb-1">FOUNDED</div>
+          <div class="text-xs text-slate-400">대한민국 축구 역사를 이어온 명문</div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900/90 p-6 rounded-2xl border border-slate-800 hover:border-seoul-gold/50 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-seoul-gold/10 border border-seoul-gold/30 flex items-center justify-center text-seoul-gold text-xl mb-4 group-hover:scale-110 group-hover:bg-seoul-gold group-hover:text-seoul-dark transition-all">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight">6 TIMES</div>
+          <div class="text-sm font-bold text-seoul-gold mb-1">K LEAGUE CHAMPION</div>
+          <div class="text-xs text-slate-400">정상에서 증명된 수도의 저력</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900/90 p-6 rounded-2xl border border-slate-800 hover:border-seoul-red/50 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-seoul-red/10 border border-seoul-red/30 flex items-center justify-center text-seoul-red text-xl mb-4 group-hover:scale-110 group-hover:bg-seoul-red group-hover:text-white transition-all">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight">66,704</div>
+          <div class="text-sm font-bold text-seoul-gold mb-1">STADIUM CAPACITY</div>
+          <div class="text-xs text-slate-400">아시아 최대 규모 축구전용구장</div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900/90 p-6 rounded-2xl border border-slate-800 hover:border-seoul-gold/50 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-seoul-gold/10 border border-seoul-gold/30 flex items-center justify-center text-seoul-gold text-xl mb-4 group-hover:scale-110 group-hover:bg-seoul-gold group-hover:text-seoul-dark transition-all">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight">SUHOSIN</div>
+          <div class="text-sm font-bold text-seoul-gold mb-1">12TH PLAYER</div>
+          <div class="text-xs text-slate-400">피치를 붉게 물들이는 수호신</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==============================================
+       Section 4: Core Identity (3-Card Layout)
+       ============================================== -->
+  <section id="identity" class="py-24 sm:py-32 relative bg-slate-950 border-t border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="text-xs font-bold tracking-widest text-seoul-gold uppercase">Brand Pillars</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4 tracking-tight">CORE IDENTITY</h2>
+        <p class="text-slate-400 text-base sm:text-lg">수도 서울과 FC 서울을 하나로 묶는 3가지 핵심 아이덴티티</p>
+        <div class="w-20 h-1 seoul-stripes mx-auto mt-6 rounded-full"></div>
+      </div>
+
+      <!-- 3-Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: HOME GROUND -->
+        <div class="group relative bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-seoul-red transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-red flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-extrabold tracking-widest px-3 py-1 rounded-full bg-seoul-red/10 text-seoul-red border border-seoul-red/30">PILLAR 01</span>
+              <div class="w-12 h-12 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-seoul-gold text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4 group-hover:text-seoul-gold transition-colors">HOME GROUND</h3>
+            <p class="text-slate-300 leading-relaxed text-base break-keep">
+              약 6만 6천 석 규모의 아시아 최대 전용구장 중 하나인 서울월드컵경기장.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-800 flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <i class="fa-solid fa-location-dot text-seoul-red"></i>
+            <span>서울 마포구 월드컵로 240 (상암동)</span>
+          </div>
+        </div>
+
+        <!-- Card 2: SUPPORTERS -->
+        <div class="group relative bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-seoul-gold transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-gold flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-extrabold tracking-widest px-3 py-1 rounded-full bg-seoul-gold/10 text-seoul-gold border border-seoul-gold/30">PILLAR 02</span>
+              <div class="w-12 h-12 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-seoul-gold text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-bullhorn"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4 group-hover:text-seoul-gold transition-colors">SUPPORTERS</h3>
+            <p class="text-slate-300 leading-relaxed text-base break-keep">
+              90분 내내 꺼지지 않는 응원과 화려한 검붉은 퍼포먼스로 힘을 실어주는 12번째 선수 '수호신'.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-800 flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <i class="fa-solid fa-flag text-seoul-gold"></i>
+            <span>상암 N석을 채우는 붉은 심장</span>
+          </div>
+        </div>
+
+        <!-- Card 3: MATCHDAY EXPERIENCE -->
+        <div class="group relative bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-seoul-red transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-red flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-extrabold tracking-widest px-3 py-1 rounded-full bg-seoul-red/10 text-seoul-red border border-seoul-red/30">PILLAR 03</span>
+              <div class="w-12 h-12 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-seoul-gold text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-champagne-glasses"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4 group-hover:text-seoul-gold transition-colors">MATCHDAY EXPERIENCE</h3>
+            <p class="text-slate-300 leading-relaxed text-base break-keep">
+              북측 광장 이벤트, 팬파크 굿즈샵, 푸드트럭까지 즐기는 올인원 직관 문화.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-800 flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <i class="fa-solid fa-burger text-seoul-red"></i>
+            <span>축구와 축제가 공존하는 경기 당일</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==============================================
+       Section 5: Matchday Gallery
+       ============================================== -->
+  <section id="gallery" class="py-24 sm:py-32 relative bg-seoul-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div>
+          <span class="text-xs font-bold tracking-widest text-seoul-gold uppercase flex items-center gap-2">
+            <i class="fa-solid fa-camera"></i>
+            <span>Visual Showcase</span>
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 tracking-tight">MATCHDAY GALLERY</h2>
+          <p class="text-slate-400 text-lg mt-3">렌즈 너머로 바라본 상암의 순간들</p>
+        </div>
+        <div class="mt-6 md:mt-0 flex items-center gap-2 text-xs text-slate-400 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700">
+          <i class="fa-solid fa-hand-pointer text-seoul-gold"></i>
+          <span>카드를 클릭하면 사진을 확대 감상할 수 있습니다</span>
+        </div>
+      </div>
+
+      <!-- Gallery Grid (4 Items as defined in plan.md) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Gallery Item 1: photo2_supporters.jpg -->
+        <div class="gallery-card group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg bg-slate-900 border border-slate-800 hover:border-seoul-red transition-all duration-300"
+             onclick="openLightbox('photo2_supporters.jpg', 'The Fortress', '수호신이 지키는 N석의 열기')">
+          <img src="photo2_supporters.jpg" alt="The Fortress (수호신이 지키는 N석의 열기)" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='수호신 응원석 1장.jpg';">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          
+          <!-- Hover Glow Icon -->
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+
+          <!-- Bottom Caption -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+            <span class="inline-block text-[11px] font-bold text-seoul-gold uppercase tracking-wider mb-1">01 / SUPPORTERS</span>
+            <h3 class="text-xl font-black text-white group-hover:text-seoul-gold transition-colors">The Fortress</h3>
+            <p class="text-sm text-slate-300 font-light mt-1">수호신이 지키는 N석의 열기</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2: photo3_action.jpg -->
+        <div class="gallery-card group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg bg-slate-900 border border-slate-800 hover:border-seoul-red transition-all duration-300"
+             onclick="openLightbox('photo3_action.jpg', 'Unstoppable', '피치 위 승리를 향한 집중력')">
+          <img src="photo3_action.jpg" alt="Unstoppable (피치 위 승리를 향한 집중력)" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='경기 골키퍼 컷.jpeg';">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+            <span class="inline-block text-[11px] font-bold text-seoul-gold uppercase tracking-wider mb-1">02 / MATCH ACTION</span>
+            <h3 class="text-xl font-black text-white group-hover:text-seoul-gold transition-colors">Unstoppable</h3>
+            <p class="text-sm text-slate-300 font-light mt-1">피치 위 승리를 향한 집중력</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3: photo4_detail.jpg -->
+        <div class="gallery-card group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg bg-slate-900 border border-slate-800 hover:border-seoul-red transition-all duration-300"
+             onclick="openLightbox('photo4_detail.jpg', 'Seoul Vibe', '검붉은 자부심의 디테일')">
+          <img src="photo4_detail.jpg" alt="Seoul Vibe (검붉은 자부심의 디테일)" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='공격수 컷.jpg';">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+            <span class="inline-block text-[11px] font-bold text-seoul-gold uppercase tracking-wider mb-1">03 / CLUB DETAIL</span>
+            <h3 class="text-xl font-black text-white group-hover:text-seoul-gold transition-colors">Seoul Vibe</h3>
+            <p class="text-sm text-slate-300 font-light mt-1">검붉은 자부심의 디테일</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4: photo5_ticket.jpg -->
+        <div class="gallery-card group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg bg-slate-900 border border-slate-800 hover:border-seoul-red transition-all duration-300"
+             onclick="openLightbox('photo5_ticket.jpg', 'Matchday Memory', '직관의 설렘과 기억')">
+          <img src="photo5_ticket.jpg" alt="Matchday Memory (직관의 설렘과 기억)" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='굿즈 컷.jpeg';">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+            <span class="inline-block text-[11px] font-bold text-seoul-gold uppercase tracking-wider mb-1">04 / MOMENTS</span>
+            <h3 class="text-xl font-black text-white group-hover:text-seoul-gold transition-colors">Matchday Memory</h3>
+            <p class="text-sm text-slate-300 font-light mt-1">직관의 설렘과 기억</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==============================================
+       Section 6: Matchday Guide (4-Step Timeline)
+       ============================================== -->
+  <section id="guide" class="py-24 sm:py-32 relative bg-slate-950 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-xs font-bold tracking-widest text-seoul-gold uppercase">First-Time Visitors</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 tracking-tight">MATCHDAY GUIDE</h2>
+        <p class="text-slate-400 text-lg mt-3">처음 상암에 방문하는 팬들을 위한 직관 4단계 로드맵</p>
+        <div class="w-20 h-1 seoul-stripes mx-auto mt-6 rounded-full"></div>
+      </div>
+
+      <!-- 4-Step Timeline Grid -->
+      <div class="relative">
+        
+        <!-- Connecting Line for Desktop -->
+        <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-seoul-red via-seoul-gold to-seoul-red transform -translate-y-6 z-0 opacity-40"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          
+          <!-- Step 1 -->
+          <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-2xl p-7 border border-slate-800 hover:border-seoul-red hover:-translate-y-2 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-3xl font-black text-seoul-gold font-mono">01</span>
+                <div class="w-12 h-12 rounded-xl bg-seoul-red/10 border border-seoul-red/30 flex items-center justify-center text-seoul-red group-hover:bg-seoul-red group-hover:text-white transition-colors">
+                  <i class="fa-solid fa-ticket text-xl"></i>
+                </div>
+              </div>
+              <h3 class="text-2xl font-black text-white mb-3">티켓 예매</h3>
+              <p class="text-slate-300 text-sm font-medium mb-4 leading-relaxed">
+                경기 5일 전 티켓링크 오픈
+              </p>
+              <div class="text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-seoul-gold font-bold">TIP:</span> N석(응원석)은 빠른 매진 주의! 가족 관람은 W석이나 동측(E석) 추천.
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80">
+              <a href="https://www.ticketlink.co.kr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-seoul-gold hover:text-white transition-colors">
+                <span>티켓링크 바로가기</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-2xl p-7 border border-slate-800 hover:border-seoul-gold hover:-translate-y-2 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-3xl font-black text-seoul-gold font-mono">02</span>
+                <div class="w-12 h-12 rounded-xl bg-seoul-gold/10 border border-seoul-gold/30 flex items-center justify-center text-seoul-gold group-hover:bg-seoul-gold group-hover:text-seoul-dark transition-colors">
+                  <i class="fa-solid fa-train-subway text-xl"></i>
+                </div>
+              </div>
+              <h3 class="text-2xl font-black text-white mb-3">오시는 길</h3>
+              <p class="text-slate-300 text-sm font-medium mb-4 leading-relaxed">
+                지하철 6호선 월드컵경기장역 2번 출구 도보 1분
+              </p>
+              <div class="text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-seoul-gold font-bold">TIP:</span> 경기 당일 주차장이 매우 혼잡하므로 대중교통(지하철 6호선) 이용을 강력 권장합니다.
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80">
+              <span class="text-xs font-bold text-slate-400">월드컵경기장역 2번 출구 직결</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-2xl p-7 border border-slate-800 hover:border-seoul-red hover:-translate-y-2 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-3xl font-black text-seoul-gold font-mono">03</span>
+                <div class="w-12 h-12 rounded-xl bg-seoul-red/10 border border-seoul-red/30 flex items-center justify-center text-seoul-red group-hover:bg-seoul-red group-hover:text-white transition-colors">
+                  <i class="fa-solid fa-shirt text-xl"></i>
+                </div>
+              </div>
+              <h3 class="text-2xl font-black text-white mb-3">팬파크 방문</h3>
+              <p class="text-slate-300 text-sm font-medium mb-4 leading-relaxed">
+                6호선 출구 앞 공식 샵에서 머플러/유니폼 구매
+              </p>
+              <div class="text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-seoul-gold font-bold">TIP:</span> 킥오프 2시간 전 도착하면 여유롭게 유니폼 마킹 및 머플러를 준비할 수 있습니다.
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80">
+              <span class="text-xs font-bold text-slate-400">FC서울 공식 팬파크 스토어</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-gradient-to-b from-seoul-cardDark to-slate-900 rounded-2xl p-7 border border-slate-800 hover:border-seoul-gold hover:-translate-y-2 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-3xl font-black text-seoul-gold font-mono">04</span>
+                <div class="w-12 h-12 rounded-xl bg-seoul-gold/10 border border-seoul-gold/30 flex items-center justify-center text-seoul-gold group-hover:bg-seoul-gold group-hover:text-seoul-dark transition-colors">
+                  <i class="fa-solid fa-utensils text-xl"></i>
+                </div>
+              </div>
+              <h3 class="text-2xl font-black text-white mb-3">직관 푸드</h3>
+              <p class="text-slate-300 text-sm font-medium mb-4 leading-relaxed">
+                북측 광장 푸드트럭 존 탐방
+              </p>
+              <div class="text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <span class="text-seoul-gold font-bold">TIP:</span> 상암 명물 닭강정, 불초밥, 시원한 생맥주와 함께 직관 축제 분위기를 만끽하세요!
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80">
+              <span class="text-xs font-bold text-slate-400">북측 광장 F&B 존</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==============================================
+       Section 7: Contact & Footer
+       ============================================== -->
+  <footer id="contact" class="bg-black text-slate-400 border-t border-slate-800 relative overflow-hidden">
+    <!-- Top Decorative Red & Black Stripe -->
+    <div class="w-full h-1.5 seoul-stripes"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Col 1: Club Info -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full overflow-hidden bg-white/10 flex items-center justify-center p-0.5">
+              <img src="fc_seoul_logo.png" alt="FC SEOUL Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='fc서울 엠블럼.png';">
+            </div>
+            <span class="text-xl font-black text-white tracking-wider">
+              FC SEOUL <span class="text-seoul-red">RED & BLACK</span>
+            </span>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed max-w-md break-keep mb-6">
+            본 사이트는 수도 서울의 자부심 FC 서울의 열정과 직관 문화를 소개하기 위해 제작된 개인 팬 포트폴리오 웹사이트입니다.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+            <span>FC SEOUL Fan Web Project • Portfolio Edition</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="text-xs font-extrabold text-white uppercase tracking-widest mb-4">QUICK LINKS</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-seoul-gold transition-colors">ABOUT</a></li>
+            <li><a href="#identity" class="hover:text-seoul-gold transition-colors">IDENTITY</a></li>
+            <li><a href="#gallery" class="hover:text-seoul-gold transition-colors">GALLERY</a></li>
+            <li><a href="#guide" class="hover:text-seoul-gold transition-colors">GUIDE</a></li>
+            <li><a href="#contact" class="hover:text-seoul-gold transition-colors">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Social & Portfolio -->
+        <div>
+          <h4 class="text-xs font-extrabold text-white uppercase tracking-widest mb-4">CREATOR & SOCIAL</h4>
+          <div class="space-y-3">
+            <a href="https://instagram.com/kimted.space" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-seoul-gold text-slate-200 hover:text-white transition-all group">
+              <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-base shadow-md">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white group-hover:text-seoul-gold transition-colors">Instagram Portfolio</span>
+                <span class="text-xs text-slate-400">@kimted.space</span>
+              </div>
+            </a>
+            
+            <a href="https://www.fcseoul.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-seoul-red text-slate-200 hover:text-white transition-all group">
+              <div class="w-9 h-9 rounded-lg bg-seoul-red flex items-center justify-center text-white text-base shadow-md">
+                <i class="fa-solid fa-futbol"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white group-hover:text-seoul-red transition-colors">FC 서울 공식 홈페이지</span>
+                <span class="text-xs text-slate-400">fcseoul.com</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 FC SEOUL Fan Web Project. All rights reserved.</p>
+        <p>Designed with <i class="fa-solid fa-heart text-seoul-red mx-1"></i> for FC SEOUL & Suhosin Fans</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==============================================
+       Image Lightbox Modal (For Matchday Gallery)
+       ============================================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4" onclick="closeLightbox(event)">
+    <div class="relative max-w-5xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <!-- Close Button -->
+      <button onclick="closeLightbox()" class="absolute -top-12 right-0 sm:-right-4 text-slate-300 hover:text-white text-3xl focus:outline-none p-2" aria-label="닫기">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Image Container -->
+      <div class="w-full max-h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl border border-white/20 shadow-2xl bg-black">
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[75vh] object-contain transition-transform duration-300">
+      </div>
+
+      <!-- Modal Caption -->
+      <div class="mt-4 text-center">
+        <h3 id="lightbox-title" class="text-xl sm:text-2xl font-black text-white"></h3>
+        <p id="lightbox-desc" class="text-sm sm:text-base text-seoul-gold mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================
+       Floating Back To Top Button
+       ============================================== -->
+  <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-seoul-red text-white border border-seoul-gold/50 shadow-glow-red flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-seoul-darkRed hover:scale-110 focus:outline-none" aria-label="맨 위로 이동">
+    <i class="fa-solid fa-arrow-up text-lg"></i>
+  </button>
+
+
+  <!-- ==============================================
+       Vanilla JavaScript (Self-contained)
+       ============================================== -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-xmark');
+        }
+      });
+
+      // Close mobile menu on clicking any link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        });
+      });
+    }
+
+    // 2. Navbar Background Blur & Color change on scroll
+    const navbar = document.getElementById('navbar');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+
+      // Navbar scroll effect
+      if (scrollPos > 60) {
+        navbar.classList.add('bg-seoul-dark/95', 'shadow-2xl', 'py-1');
+        navbar.classList.remove('bg-seoul-dark/80');
+      } else {
+        navbar.classList.remove('bg-seoul-dark/95', 'shadow-2xl', 'py-1');
+        navbar.classList.add('bg-seoul-dark/80');
+      }
+
+      // Back to top button visibility
+      if (scrollPos > 400) {
+        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+    });
+
+    // 3. Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // 4. Lightbox Modal functionality
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+
+    function openLightbox(src, title, desc) {
+      lightboxImg.src = src;
+      lightboxImg.alt = title;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+
+      lightboxModal.classList.remove('hidden');
+      setTimeout(() => {
+        lightboxModal.classList.remove('opacity-0');
+        lightboxModal.classList.add('opacity-100');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      lightboxModal.classList.remove('opacity-100');
+      lightboxModal.classList.add('opacity-0');
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+        lightboxImg.src = '';
+      }, 300);
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close lightbox on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
+
